@@ -3,6 +3,7 @@
 //"1234"라면 True를 리턴하면 됩니다.
 function solution(s) {
     let answer = false;
+
     //정규식 통해서 숫자인지만 체크
     let reg = /^[0-9]*$/;
     //길이가 4 or 6인지 체크 후 정규식 통과하면 answer값 true로
