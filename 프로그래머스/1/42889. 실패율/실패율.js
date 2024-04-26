@@ -22,15 +22,10 @@ function solution(N, stages) {
     }
     
     const a = Object.keys(answer).sort((a,b)=>{
-        if(answer[a]>answer[b]){
-            return -1
+        if(answer[a]===answer[b]){
+            return a-b
         }
-        else if(answer[a]<answer[b]){
-            return 1
-        }
-        else {
-            return +a > +b ? 1 : -1
-        }
+        return answer[b] - answer[a]
     })
   
     return a.map((el)=>+el)
