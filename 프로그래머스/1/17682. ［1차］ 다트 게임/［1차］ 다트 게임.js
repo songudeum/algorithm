@@ -3,6 +3,11 @@ function solution(dartResult) {
     //SDT는 점수마다 하나씩, * #은 점수마다 둘 중하나 존재 or 존재X
     //다음 숫자 이전까지가 해당 스테이지 점수
     //2인덱스 3인덱스를 알아내서 잘라내고 각인덱스별로 계산해서 저장하게끔
+    const pow = {
+        "S" : 1,
+        "D" : 2,
+        "T" : 3
+    }
     let answer = [0,0,0]
     let score = ""
     let index = -1
@@ -20,14 +25,8 @@ function solution(dartResult) {
             index+=1
         }else{    
         score = +score
-        if(cur === "S"){
-            answer[index] += score
-        }
-        if(cur === "D"){
-            answer[index] += Math.pow(score,2)
-        }
-        if(cur.includes("T")){
-            answer[index] += Math.pow(score,3)
+        if(pow[cur]){
+            answer[index] += Math.pow(score,pow[cur])
         }
         if(cur.includes("*")){
             answer[index] *= 2
