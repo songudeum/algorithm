@@ -7,8 +7,11 @@ function solution(citations) {
     citations.sort((a,b)=>a-b)
     const half = Math.round((citations[0]+citations[citations.length-1])/2)
     for(let i = half; i>0; i--){
-        const h = citations.filter((el)=>el>=i).length
-        if(h >= i) return i
+        let length = 0
+        for(const number of citations){
+         if(number >= i) length++   
+        }
+        if(length >= i) return i
     }
     return answer;
 }
